@@ -1,21 +1,25 @@
-﻿/* Author: Aric Hasting
- * Date Created: 3/29/2018
+﻿/* Author: Alexander Tang
+ * Date Created: 4/5/2018
  * Date Modified: 
  * Modified By: 
- * Description: Spiral Emitter Behavior for enemy
+ * Description: Spiral Emitter but only within a set radius
  */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpiralEmitter : EnemyShot {
+public class SpiralOnEnter : EnemyShot {
 
     [Header("Set in Inspector")]
-	public float rotationSpeed;     //Rotation speed of spiral
-    public float bulletSpeed;       //Speed of Bullets emitted
-    public float emissionRate;      //Rate of bullet emission
+    public Transform player;    //Player Transform
 
-    private float rotation = 0f;
+    public float searchRadius = 50f;    //Radius to trigger emission
+
+    public float rotationSpeed;     //Rotation speed of spiral
+	public float bulletSpeed;       //Speed of Bullets emitted
+	public float emissionRate;      //Rate of bullet emission
+
+	private float rotation = 0f;
 
 	//controls rotation over time.
     public float FirePattern()
@@ -39,8 +43,8 @@ public class SpiralEmitter : EnemyShot {
     // Update is called once per frame
     private void Update() {
 		rotation += FirePattern();
-
-		if (FireRate()) {
+        FireOnEnter();
+		if (FireRate() && firing) {
 			Fire();
 		}
 	}
@@ -62,5 +66,19 @@ public class SpiralEmitter : EnemyShot {
 
         
         newBull.GetComponent<UpdateBullet>().movement = movement * bulletSpeed;
+    }
+
+    //Bullets only are fired when player is within searchRadius
+    public void FireOnEnter()
+    {
+        float playerDistance = Vector3.Distance(transform.position, player.position);
+        if (playerDistance < searchRadius)
+        {
+            firing = true;
+        }
+        else
+        {
+            firing = false;
+        }
     }
 }

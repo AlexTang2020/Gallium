@@ -1,6 +1,13 @@
-﻿using System.Collections;
+﻿/* Author: Alvaro Gudiswitz
+ * Date Created: 3/29/2018
+ * Date Modified: 4/17/2018
+ * Modified By: Alvaro Gudiswitz
+ * Description: Uses correct controller for joystick inputs
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class InputManager : MonoBehaviour {
 
@@ -26,6 +33,7 @@ public class InputManager : MonoBehaviour {
                 break;
             }
         }
+        print(controllerType);
     }
 	
 	// Returns axis given axis.
@@ -60,7 +68,7 @@ public class InputManager : MonoBehaviour {
                         return 0;
                 }
             default:
-                return Input.GetAxis(axis);
+                return Input.GetAxisRaw(axis);
         }
     }
 }

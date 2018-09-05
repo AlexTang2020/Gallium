@@ -1,25 +1,26 @@
-﻿/* Author: Aric Hasting
- * Date Created: 3/29/2018
+﻿/* Author: Javier Bernal
+ * Date Created: 4/10/2018
  * Date Modified: 
  * Modified By: 
- * Description: Circle Emitter Behavior for enemy
+ * Description: Bullets will emit in different patterns
  */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircleBursts : EnemyShot {
+public class CircleBurstDirected : EnemyShot {
 
     [Header("Set in Inspector")]
-	public float bulletSpeed;   //Speed of the bullet
-	public int perCircle;       //Number of bullets per circle burst
-    public float shotDelay;     //Delay between circle bursts
+	public float bulletSpeed;       //Speed of the bullet
+    public int perCircle;           //Number of bullets per circle burst
+    public float shotDelay;         //Delay between circle bursts
+    public int wise;
 
-    public int spiraling;       //How much bullets will emit in a spiral
+	public int spiraling;           //How much bullets will emit in a spiral
 
 	private int alt = 1;
 
-    //Bullets fire out in a circle
+    //Bullets fire out 
     public override void Fire() {
 		Transform[] bullets = new Transform[perCircle];
 
@@ -28,7 +29,7 @@ public class CircleBursts : EnemyShot {
 
 			float altAngle = (2 * Mathf.PI) / (float)perCircle / (float)spiraling * alt;
 
-			Vector3 bulletVec = AngleMath.AngleToVector3(((2 * Mathf.PI) / (float)perCircle) * i + altAngle);
+			Vector3 bulletVec = AngleMath.AngleToVector3(wise*(((2 * Mathf.PI) / (float)perCircle) * i + altAngle));
 			bulletVec = bulletVec * bulletSpeed;
 
 			bullets[i].transform.position = transform.position;
@@ -50,7 +51,7 @@ public class CircleBursts : EnemyShot {
 		}
 		return false;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (FireRate()) {
@@ -58,3 +59,4 @@ public class CircleBursts : EnemyShot {
 		}
 	}
 }
+

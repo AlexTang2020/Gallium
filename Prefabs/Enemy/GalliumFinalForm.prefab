@@ -9,48 +9,49 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1997302886608032}
+  m_RootGameObject: {fileID: 1884727942162704}
   m_IsPrefabParent: 1
---- !u!1 &1997302886608032
+--- !u!1 &1884727942162704
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4022949816726098}
-  - component: {fileID: 33478058779519412}
-  - component: {fileID: 136449530987583958}
-  - component: {fileID: 23737259665098754}
-  - component: {fileID: 114843276712199868}
-  - component: {fileID: 54775966032600928}
-  - component: {fileID: 114198950385577258}
-  m_Layer: 8
-  m_Name: Player
-  m_TagString: Player
+  - component: {fileID: 4826631577312640}
+  - component: {fileID: 33805992475096662}
+  - component: {fileID: 135088814520479324}
+  - component: {fileID: 23006104374048826}
+  - component: {fileID: 114065965660567940}
+  - component: {fileID: 114347139944903016}
+  - component: {fileID: 54494598027559506}
+  - component: {fileID: 114791846832206342}
+  m_Layer: 0
+  m_Name: GalliumFinalForm
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4022949816726098
+--- !u!4 &4826631577312640
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1997302886608032}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.93, y: 0.99, z: 2.88}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 1884727942162704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.6, y: 2, z: 0.6721036}
+  m_LocalScale: {x: 3, y: 3, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23737259665098754
+--- !u!23 &23006104374048826
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1997302886608032}
+  m_GameObject: {fileID: 1884727942162704}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,7 +60,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 814e305bad119e94386ee7a9b276d79f, type: 2}
+  - {fileID: 2100000, guid: a837698798f5e63438b52584c5c29abd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,19 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33478058779519412
+--- !u!33 &33805992475096662
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1997302886608032}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54775966032600928
+  m_GameObject: {fileID: 1884727942162704}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54494598027559506
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1997302886608032}
+  m_GameObject: {fileID: 1884727942162704}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -101,50 +102,70 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114198950385577258
+--- !u!114 &114065965660567940
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1997302886608032}
+  m_GameObject: {fileID: 1884727942162704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ee75371102be3f42ac2d272f8f2ddee, type: 3}
+  m_Script: {fileID: 11500000, guid: 07af5a03799684a44ba0e992d2bf1af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114843276712199868
+  bullet: {fileID: 4951316702503476, guid: bd2a699dab0a30a4da27c5510d13423b, type: 2}
+  firing: 1
+  player: {fileID: 0}
+  searchRadius: 25
+  rotationSpeed: 500
+  bulletSpeed: 5
+  emissionRate: 0.05
+--- !u!114 &114347139944903016
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1997302886608032}
+  m_GameObject: {fileID: 1884727942162704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bbfdf583171d4d459fd0099b9a21c23, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a971d452fc01b24f8a591866b2ee357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charState: 0
-  speed: 6
-  dodgeSpeed: 10
-  statelock: 0
-  dodgeTime: 0.3
-  dodgeRecovery: 1
-  damageInvul: 0.5
-  playerHP: 3
-  playerMat: {fileID: 2100000, guid: 814e305bad119e94386ee7a9b276d79f, type: 2}
-  glowColor: {r: 0.9862069, g: 1, b: 0, a: 1}
-  dodgeColor: {r: 0.5724138, g: 1, b: 0, a: 1}
-  invulColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!136 &136449530987583958
-CapsuleCollider:
+  bullet: {fileID: 4951316702503476, guid: bd2a699dab0a30a4da27c5510d13423b, type: 2}
+  firing: 1
+  bulletSpeed: 30
+  perCircle: 5
+  shotDelay: 2
+  spiraling: 500
+--- !u!114 &114791846832206342
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1997302886608032}
+  m_GameObject: {fileID: 1884727942162704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f32812cce7bee0498a42e3046ee1551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  galliumState: 0
+  player: {fileID: 0}
+  searchRadius: 50
+  speed: 9
+  moveDir: {x: 0, y: 0, z: 0}
+  wall:
+    serializedVersion: 2
+    m_Bits: 1024
+  distFromWall: 10
+--- !u!135 &135088814520479324
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1884727942162704}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
